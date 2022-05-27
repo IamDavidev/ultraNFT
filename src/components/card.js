@@ -1,8 +1,5 @@
 import { LitElement, html, css } from 'lit';
 
-const { css } = css`
-
-`
 
 export const tagName = 'my-counter';
 
@@ -17,25 +14,31 @@ class Counter extends LitElement {
     static styles = css`
         :host{
         }
-        .container {
-            background: #fff;
-        }
     `
+
+    async fecthData() {
+        const $userName = this.shadowRoot.getElementById('user_name');
+
+        const name = await fetch("https://randomuser.me/api/").then(res => res.json()).then(data => {
+            console.log(data.results[0].name.first);
+            return data.results[0].name.first;
+        })
+        console.log(name, $userName);
+
+        $userName.innerHTML = name;
+    }
 
     constructor() {
         super();
         this.count = 0;
-    }
-
-    increment() {
-        this.count++;
+        console.log('constructor');
     }
 
     render() {
         return html`
 			<div class="container">
-				<p>Count: ${this.count}</p>
-				<button type="button" @click=${this.increment}>Increment</button>
+                <h1 id="user_name">h</h1>
+				<button type="button" @click=${this.fecthData}>data</button>
 			</div>
 		`;
     }

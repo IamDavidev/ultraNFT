@@ -1,12 +1,10 @@
 ---
 	import Base from '../_includes/base.astro'
-	import '../components/card.js'
+	import '../layouts/navbar.layout.js'
+	import '../styles/style.global.css'
 ---
 
 <Base title="base">
-	<h1>
-		hola
-	</h1>
-	<my-counter client:visible></my-counter>
+		<navbar-layout client:visible></navbar-layout>
 </Base>
 
