@@ -1,10 +1,20 @@
 ---
 	import Base from '../_includes/base.astro'
-	import '../layouts/navbar.layout.js'
+	
 	import '../styles/style.global.css'
+	
+	import '../layouts/navbar.layout.js'
+	import '../layouts/header.layout.js'
+	import '../layouts/works.layout.js'
+
 ---
 
-<Base title="base">
-		<navbar-layout client:visible></navbar-layout>
+<Base title="ultra NFT">
+	<navbar-layout client:visible></navbar-layout>
+	<header-layout client:visible></header-layout>
+	<main>
+		<works-layout client:visible></works-layout>
+	</main>
+
 </Base>
 

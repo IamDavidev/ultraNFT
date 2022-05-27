@@ -1,14 +1,11 @@
 import { LitElement, html, css } from 'lit';
 import logo from '../assets/icons/logo.svg'
-import searchSVG from '../assets/icons/more.svg'
+import searchSVG from '../assets/icons/search.svg'
 import wallet from '../assets/icons/wallet.svg'
 
 export const tagName = 'navbar-layout';
 
 class Navbar extends LitElement {
-    constructor() {
-        super()
-    }
     static styles = [
         css`
             :host {
@@ -49,6 +46,7 @@ class Navbar extends LitElement {
                 display: flex;
                 align-items:center;
                 justify-content:center;
+                gap:.2rem;
                 border-radius:.5rem;
                 padding:.5rem;
             }
@@ -64,6 +62,10 @@ class Navbar extends LitElement {
             }
             .contentLogo > label > input:focus{
                 outline:none;
+            }
+            .contentLogo > label > span > img {
+                width:20px;
+                color:var(--color--primary)
             }
 
             .contentMenu{
@@ -98,34 +100,57 @@ class Navbar extends LitElement {
                 font-weight:bold;
                 color:var(--color--primary)
             }
+            .active{
+                color:var(--rose--color--primary)
+            }
         `
     ];
+
+    activeLink() {
+        console.log('linsk actives')
+        const links = this.shadowRoot.querySelectorAll(".link");
+        links.forEach(link => [
+            link.addEventListener('click', () => {
+                links.forEach(link => link.classList.remove('active'));
+                link.classList.add('active');
+            })
+        ])
+    }
+
+    firstUpdated() {
+        this.activeLink();
+    }
 
     render() {
         return html`
             <nav class="container">
+
                 <div class="contentLogo">
                     <figure>
                         <img src="${logo}" alt="ultraNft"/>
                         <span>Ultra NFT</span>
                     </figure>
+
                     <label >
                         <span><img src="${searchSVG}" alt="s"/></span>
                         <input type="text" name="query" placeholder="search"/>
                     </label>
                 </div>
+
                 <div class="contentMenu">
                     <ul class="list">
-                        <li>Home</li>
-                        <li>Explore</li>
-                        <li>Pages</li>
-                        <li>Contact Us</li>
+                        <li class="link active">Home</li>
+                        <li class="link">Explore</li>
+                        <li class="link">Pages</li>
+                        <li class="link">Contact Us</li>
                     </ul>
+
                     <button class="btn btnWallet">
                         <img src="${wallet}" alt="walletUltra"/>
                         <span>Connect Wallet</span>
                     </button>
                 </div>
+
             </nav>
         `;
     }
