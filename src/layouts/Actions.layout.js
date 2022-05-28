@@ -45,6 +45,9 @@ export class Actions extends LitElement {
 				display: flex;
 				flex-direction: row;
 				justify-content: space-around;
+				flex-wrap:wrap;
+				padding: 1rem;;
+				gap:1rem;
 			}
 			.navigation {
 				margin-top: 12px;
@@ -67,6 +70,14 @@ export class Actions extends LitElement {
 				width: 18px;
 				height: 18px;
 			}
+			@media (min-width:200px) and (max-width:600px) {
+				.header{
+					flex-direction: column;
+				}
+				.contentCards{
+					padding:3rem;
+				}
+			}
 		`,
 	];
 
@@ -85,7 +96,7 @@ export class Actions extends LitElement {
 						price="4"
 						userName="David Lezama"
 						nft="main"
-						crows="45"
+						crows="99"
 						like="666"
 					></card-nft>
 					<card-nft

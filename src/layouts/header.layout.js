@@ -124,6 +124,62 @@ export class Header extends LitElement {
                     transform: translate(-10px,-10px);
                 }             
             }
+            @media (min-width:200px) and (max-width:768px){
+                .header{
+                    padding:0;
+                    flex-direction:column;
+                }
+                .contentDescription > h1 {
+                    width:10ch;
+                    font-size:2.5em;
+                }
+                .contentBtns{
+                    justify-content:center;
+                    gap:20px;
+                }
+                .contentIlustration{
+                    display:flex;
+                    justify-content:center;
+                }
+                .contentIlustration > figure {
+                    max-width:300px;
+                    height:300px;
+                }
+
+                .elip{
+                    left:3rem;
+                    top:9rem
+                }
+                .lauch{
+                    top: -2rem;
+                    left: 1rem;
+                    max-width: 150px;
+                    
+                }
+                .rocket{
+                    width: 150px;
+                    top: -3rem;
+                    right: 2rem;
+                }
+                .bg{
+                    width:250px;
+                    left: 4rem;
+                    top: 0;
+                }
+                .world{
+                    max-width: 150px;
+                    top: 5rem;
+                    left: 8rem;
+                    bottom: 0;
+                }
+            }
+            @media (min-width:769px) and (max-width:1200px){
+                .header{
+                    flex-direction:column;
+                    align-items:center;
+                    gap:10rem;
+                }
+            }
         `
     ];
 

@@ -71,6 +71,7 @@ class Navbar extends LitElement {
             .contentMenu{
                 display: flex;
                 align-items:center;
+                flex-wrap:wrap;
                 gap:32px;
             }
             .list{
@@ -103,6 +104,20 @@ class Navbar extends LitElement {
             }
             .active{
                 color:var(--rose--color--primary)
+            }
+            @media (min-width:200px) and (max-width:768px){
+                .container{
+                    flex-direction:column;
+                    gap:1rem;;
+
+                }
+                .contentLogo{
+                    flex-direction:column;
+                    gap:.5rem;
+                }
+                .contentMenu{
+                    justify-content:center;
+                }
             }
         `
     ];
