@@ -1,12 +1,27 @@
 ---
 	import Base from '../_includes/base.astro'
-	import '../components/card.js'
+	
+	import '../styles/style.global.css'
+	
+	import '../layouts/navbar.layout.js'
+	import '../layouts/header.layout.js'
+	import '../layouts/works.layout.js'
+	import '../layouts/Actions.layout.js'
+	import '../layouts/popularCollections.layout.js'
+	import '../layouts/sellers.layout.js'
+	import '../layouts/Pics.layout.js'
+
 ---
 
-<Base title="base">
-	<h1>
-		hola
-	</h1>
-	<my-counter client:visible></my-counter>
+<Base title="ultra NFT">
+	<navbar-layout client:visible></navbar-layout>
+	<header-layout client:visible></header-layout>
+	<main>
+		<works-layout client:visible></works-layout>
+		<actions-layout client:visible></actions-layout>
+		<popular-collections client:visible></popular-collections>
+		<top-sellers client:visible></top-sellers>
+		<today-pics client:visible></today-pics>
+	</main>
 </Base>
 
