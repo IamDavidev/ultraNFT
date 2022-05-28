@@ -85,6 +85,7 @@ class Navbar extends LitElement {
             .list > li {
                 font-size:1rem;
                 font-weight:bold;
+                cursor: pointer;
             }
             .contentMenu > .btnWallet {
                 border:none;

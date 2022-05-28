@@ -10,6 +10,9 @@ export class Works extends LitElement {
             :host {
                 display: block;
             }
+            .container {
+                margin:80px 0;
+            }
             .workTitle{
                 text-align:center;
                 font-size:4rem;
@@ -28,7 +31,7 @@ export class Works extends LitElement {
 
     render() {
         return html`
-            <section>
+            <section class="container">
                 <h2 class="workTitle">How it Works</h2>
                 <div class="contentCards">
                     <card-work work="setUp" title="Set Up your wallet" description="once you've set up your wallet fo choise, connet it to openSeaby clicking the nft marketplacein in the top right corner"></card-work> 
